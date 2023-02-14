@@ -17,10 +17,10 @@ init_migrate:
 	migrate create -ext sql -dir db/migrations -seq init_schema
 
 migrateup:
-	migrate -path ./db/migrations -database "postgres://root:postgres@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	migrate -path ./db/migrations -database "postgres://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 
 migratedown:
-	migrate -path ./db/migrations -database "postgres://root:postgres@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	migrate -path ./db/migrations -database "postgres://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
 # 172.17.131.145
 test:
 	go test -v -cover ./...
