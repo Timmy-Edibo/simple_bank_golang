@@ -7,17 +7,19 @@ createdb:
 # docker exec -it postgres15 createdb --username=root --owner=root simple_bank
 
 pgshell:
-	docker exec -it postgres15 psql -U postgres simple_bank
+	docker exec -it postgres15 psql -U root simple_bank
 
 dropdb:
+	docker exec -it postgres15 dropdb -U root simple_bank
 # docker exec -it postgres15 dropdb -U root simple_bank
-	docker exec -it postgres15 dropdb -U postgres simple_bank
 
 init_migrate:
 	migrate create -ext sql -dir db/migrations -seq init_schema
 
+
 migrateup:
 	migrate -path ./db/migrations -database "postgres://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+
 
 migratedown:
 	migrate -path ./db/migrations -database "postgres://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
