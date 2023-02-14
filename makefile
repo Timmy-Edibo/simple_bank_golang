@@ -1,5 +1,5 @@
 postgres:
-	docker run -d --name postgres15 -p 5432:5432 -e POSTGRES_USER=secret -e POSTGRES_PASSWORD=root -d postgres:15-alpine
+	docker run -d --name postgres15 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:15-alpine
 # docker run --name postgres15 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -d postgres:15-alpine
 
 createdb:
